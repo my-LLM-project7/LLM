@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my-LLM-project7"
+version = "0.1.0"
+description = "A simple project to learn Python packaging."
+readme="README.md"
+requires-python = ">=3.8"
+
+[project.urls]
+"Homepage" = "https://github.com/my-LLM-project7/LLM.git"
+"Bug Tracker" = "https://github.com/my-LLM-project7/LLM.git/issues"
+
+# --- 代码风格工具配置 ---
+
+[tool.black]
+line-length = 88
+# target-version = ['py38'] # 如果需要，可以指定 target version，black 会根据这个进行格式化
+
+[tool.isort]
+profile = "black" # 兼容 black 的配置
+line_length = 88
+# multi_line_output = 3 # 默认值，通常不错
+# include_trailing_comma = true # 默认值
+# use_parentheses = true # 默认值
+
+[tool.flake8]
+max-line-length = 88
+# 忽略与 black 冲突的规则
+# W503: line break before binary operator
+# E203: whitespace before ':' (e.g. in slicing) - black handles this differently
+# SCC001: single clause if statement on a new line (often undesirable for readability)
+ignore = "W503, E203, SCC001"
+exclude = [
+    ".git",
+    "__pycache__",
+    "docs",
+    "build",
+    "dist",
+    ".venv", # 排除虚拟环境
+    "venv", # 排除虚拟环境
+]
+# max-complexity = 10 # 可以定义代码复杂度限制
