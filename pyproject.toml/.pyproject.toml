@@ -16,8 +16,18 @@ requires-python = ">=3.8"
 # --- 代码风格工具配置 ---
 
 [tool.black]
-line-length = 88
-# target-version = ['py38'] # 如果需要，可以指定 target version，black 会根据这个进行格式化
+line-length = 120
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
 
 [tool.isort]
 profile = "black" # 兼容 black 的配置
